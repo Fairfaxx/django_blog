@@ -25,5 +25,5 @@ urlpatterns = [
     path('', home_page, name='home'),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='Contact Us'),
-    path('blog/<int:post_id>/', include ('blog.urls')),
+    path('blog/<str:slug>/', include ('blog.urls')),
 ]
