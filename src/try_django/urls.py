@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import (home_page, about_page, contact_page)
-from blog.views import (blog_post_detail_page, blog_post_list_view,)
+from blog.views import (blog_post_create_view)
 
 
 urlpatterns = [
@@ -25,6 +25,6 @@ urlpatterns = [
     path('', home_page, name='home'),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='Contact Us'),
-    path('blog/', blog_post_list_view),
-    path('blog/<str:slug>/', blog_post_detail_page),
+    path('blog-new/', blog_post_create_view),
+    path('blog/', include('blog.urls')),
 ]

@@ -5,14 +5,6 @@ from django.http import Http404
 
 
 
-def blog_post_detail_page(request, slug):
-  qs = BlogPost.objects.all()
-  obj = get_object_or_404(qs, slug=slug)
-  template_name = 'blog_post_detail.html'
-  context = {"object": obj}
-  return render(request, template_name, context)
-
-
 def blog_post_list_view(request):
   # List out objects
   # Couldbe search
@@ -28,7 +20,7 @@ def blog_post_create_view(request):
   context = {"form": None}
   return render(request, template_name, context)
 
-def blog_post_detail_view(request):
+def blog_post_detail_view(request, slug):
   # 1 object or detail view
   obj = get_object_or_404(BlogPost, slug=slug)
   template_name = 'blog_post_detail.html'
