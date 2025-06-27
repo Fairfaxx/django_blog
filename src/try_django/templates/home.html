@@ -1,2 +1,7 @@
-{% extends "base.html" %} {% block content %} {{title}} {{user}}
-{{user.is_authenticated}} {% endblock %}
+{% extends "base.html" %} {% block content %}
+<h1>{{title}}</h1>
+<h3>Howdy: {{user}}</h3>
+
+{% for blog in blog_list %}
+{% include "blog/list_inline_template.html" with blog_post=blog truncate=True detail=False %}
+{% endfor %} {% endblock %}
